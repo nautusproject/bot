@@ -1,0 +1,13 @@
+language: python
+dist: bionic
+python:
+  - "3.6"
+  - "3.7"
+  - "3.8"
+  - "3.9"
+install:
+  - pip3 install virtualenv
+  - virtualenv .venv -p python3
+  - source .venv/bin/activate
+  - pip3 install -r requirements.txt
+script: run python3 -m unittest
