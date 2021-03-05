@@ -1,5 +1,7 @@
 # lichess-bot
-This is the code for  [this](https://lichess.org/@/by_FS-Schach) bot. The code is a fork of [ShailChoksi/lichess-bot](https://github.com/ShailChoksi/lichess-bot).
+[![Build Status](https://travis-ci.com/nautusproject/lichess-bot.svg?branch=master)](https://travis-ci.com/nautusproject/lichess-bot)
+
+This is the code for  [this](https://lichess.org/@/FS-Schach-Super) bot. The code is a fork of [ShailChoksi/lichess-bot](https://github.com/ShailChoksi/lichess-bot) and will be developed seperately.
 
 ## How to Install
 
@@ -27,34 +29,19 @@ pip3 install -r requirements.txt
 
 
 ## Setup Engine
-- Place your engine(s) in the `engine.dir` directory
-- In `config.yml`, enter the binary name as the `engine.name` field (In Windows you may need to type a name with ".exe", like "lczero.exe")
+- Place your engine(s) in the `engine` directory
+- In `config.yml`, enter the binary name as the `engine.name` field
 - Leave the `weights` field empty or see LeelaChessZero section for Neural Nets
 
 
 ## Lichess Upgrade to Bot Account
 **WARNING** This is irreversible. [Read more about upgrading to bot account](https://lichess.org/api#operation/botAccountUpgrade).
-- run `python lichess-bot.py -u`
+- run `python3 lichess-bot.py -u`
 
 ## To Quit
 - Press CTRL+C
 - It may take some time to quit
 
-## LeelaChessZero
-
-- Download the weights for the id you want to play from here: https://lczero.org/play/networks/bestnets/
-- Extract the weights from the zip archive and rename it to `latest.txt`
-- For Windows, download the lczero binary from https://github.com/LeelaChessZero/lc0/releases
-- For Mac/Linux, build the lczero binary yourself following [LeelaChessZero/lc0/README](https://github.com/LeelaChessZero/lc0/blob/master/README.md)
-- Copy both the files into the `engine.dir` directory
-- Change the `engine.name` and `engine.engine_options.weights` keys in config.yml to `lczero` (`lczero.exe` for Windows)  and `weights.pb.gz`
-- You can specify the number of `engine.uci_options.threads` in the config.yml file as well
-- To start: `python lichess-bot.py`
-
-## For Docker
-
-Use https://github.com/vochicong/lc0-nvidia-docker to easily run lc0 and lichess-bot
-inside a Docker container.
 
 ## Tips & Tricks
 - You can specify a different config file with the `--config` argument.
@@ -67,10 +54,10 @@ Wants=network-online.target
 
 [Service]
 Environment="PYTHONUNBUFFERED=1"
-ExecStart=/usr/bin/python3 /home/thibault/lichess-bot/lichess-bot.py
-WorkingDirectory=/home/thibault/lichess-bot/
-User=thibault
-Group=thibault
+ExecStart=/home/USER/lichess-bot/.venv/bin/activate /home/USER/lichess-bot/lichess-bot.py
+WorkingDirectory=/home/USER/lichess-bot/
+User=USER
+Group=USER
 Restart=always
 
 [Install]
@@ -79,7 +66,7 @@ WantedBy=multi-user.target
 
 # Acknowledgements
 Thanks to the Lichess team, especially T. Alexander Lystad and Thibault Duplessis for working with the LeelaChessZero
-team to get this API up. Thanks to the Niklas Fiekas and his [python-chess](https://github.com/niklasf/python-chess) code which allows engine communication seamlessly.
+team to get this API up. Thanks to the Niklas Fiekas and his [python-chess](https://github.com/niklasf/python-chess) code which allows engine communication seamlessly. And thanks to the original developers of that bot.
 
 # License
 lichess-bot is licensed under the AGPLv3 (or any later version at your option). Check out LICENSE.txt for the full text.
