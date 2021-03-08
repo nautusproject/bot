@@ -1,7 +1,7 @@
 # lichess-bot
 [![Build Status](https://travis-ci.com/nautusproject/lichess-bot.svg?branch=master)](https://travis-ci.com/nautusproject/lichess-bot)
 
-This is the code for  [this](https://lichess.org/@/FS-Schach-Super) bot. The code is a fork of [ShailChoksi/lichess-bot](https://github.com/ShailChoksi/lichess-bot) and will be developed seperately.
+This is the code for  [this](https://lichess.org/@/FS-Schach-Super) bot. The code is a fork of [ShailChoksi/lichess-bot](https://github.com/ShailChoksi/lichess-bot) with a few modifications. Thanks for the upstream effort.
 
 ## How to Install
 
